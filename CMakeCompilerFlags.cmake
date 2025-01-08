@@ -12,7 +12,8 @@ endif()
 
 # https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html
 # Sanitizers are only used for test executables
-if (BUILD_TESTS AND NOT NO_SANITIZER)
+# Sadly MinGW has no sanitizer flags
+if (BUILD_TESTS AND NOT NO_SANITIZER AND NOT MINGW)
     if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         add_compile_options(-fno-omit-frame-pointer -g)
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
