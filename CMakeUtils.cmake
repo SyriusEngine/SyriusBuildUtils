@@ -22,9 +22,10 @@ function(INCLUDE_OR_FETCH LIB_NAME)
                 ${LIB_NAME}
                 GIT_REPOSITORY https://github.com/SyriusEngine/${LIB_NAME}.git
                 GIT_SHALLOW TRUE
+                GIT_TAG main
                 GIT_PROGRESS TRUE
             )
-            FetchContent_MakeAvailable(${LIB_ROOT})
+            FetchContent_MakeAvailable(${LIB_NAME})
         endif()
     endif()
 endfunction()
