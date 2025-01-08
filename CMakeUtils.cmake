@@ -4,7 +4,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/CMakeColoredText.cmake)
 
 set (CMAKE_CXX_STANDARD 17)
 
-function(INCLUDE_OR_FETCH LIB_NAME)
+function(INCLUDE_OR_FETCH LIB_NAME OUTPUT_LIB_ROOT)
     if (NOT TARGET ${LIB_NAME})
         message(STATUS "Including ${LIB_NAME}")
         # Assume the local version is in a child folder and that the name of the library is the same as the folder name
@@ -25,6 +25,9 @@ function(INCLUDE_OR_FETCH LIB_NAME)
             )
             FetchContent_MakeAvailable(${LIB_ROOT})
         endif()
+        set(${OUTPUT_LIB_ROOT} ${LIB_ROOT} PARENT_SCOPE)
+    else()
+        message(WARNING "No target ${LIB_NAME} found!")
     endif()
 endfunction()
 
