@@ -1,6 +1,7 @@
 include(FetchContent)
 
 include(${CMAKE_CURRENT_LIST_DIR}/CMakeColoredText.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/CMakeCompilerFlags.cmake)
 
 set (CMAKE_CXX_STANDARD 17)
 
