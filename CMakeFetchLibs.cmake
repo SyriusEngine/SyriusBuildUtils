@@ -15,3 +15,19 @@ function(fetch_gtest)
         message(WARNING "No target gtest found!")
     endif()
 endfunction()
+
+function(fetch_glfw)
+    if (NOT TARGET glfw)
+        message(STATUS "Fetching GLFW")
+        FetchContent_Declare(
+            glfw
+            GIT_REPOSITORY https://github.com/glfw/glfw.git
+            GIT_TAG master
+            GIT_PROGRESS TRUE # Show progress
+            GIT_SHALLOW TRUE
+        )
+        FetchContent_MakeAvailable(glfw)
+    else()
+        message(WARNING "No target glfw found!")
+    endif()
+endfunction()
