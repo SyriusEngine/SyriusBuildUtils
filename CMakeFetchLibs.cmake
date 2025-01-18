@@ -31,3 +31,18 @@ function(fetch_glfw)
         message(WARNING "No target glfw found!")
     endif()
 endfunction()
+
+function(fetch_glm)
+    if (NOT TARGET glm)
+        FetchContent_Declare(
+            glm
+            GIT_REPOSITORY	https://github.com/g-truc/glm.git
+            GIT_TAG 	bf71a834948186f4097caa076cd2663c69a10e1e #refs/tags/1.0.1
+            GIT_PROGRESS TRUE
+            GIT_SHALLOW TRUE
+        )
+        FetchContent_MakeAvailable(glm)
+    else()
+        message(WARNING "No target glm found!")
+    endif()
+endfunction()
