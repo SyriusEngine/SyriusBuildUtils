@@ -1,6 +1,5 @@
 include(FetchContent)
 
-include(${CMAKE_CURRENT_LIST_DIR}/CMakeColoredText.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/CMakeCompilerFlags.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/CMakeFetchLibs.cmake)
 
