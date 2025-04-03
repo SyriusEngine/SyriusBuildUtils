@@ -27,3 +27,7 @@ endfunction()
 function(fetch_glm)
     fetch_lib(glm https://github.com/g-truc/glm.git bf71a834948186f4097caa076cd2663c69a10e1e)
 endfunction()
+
+function(fetch_fmt)
+    fetch_lib(fmt https://github.com/fmtlib/fmt.git master)
+endfunction()
