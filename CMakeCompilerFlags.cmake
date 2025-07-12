@@ -2,6 +2,11 @@
 message(STATUS "C Compiler: ${CMAKE_C_COMPILER_ID}")
 message(STATUS "C++ Compiler: ${CMAKE_CXX_COMPILER_ID}")
 
+# Set C++ version to 20
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+message(STATUS "C++ Version: ${CMAKE_CXX_STANDARD}")
+
 # check build type
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     message(STATUS "Building in Debug Mode")
