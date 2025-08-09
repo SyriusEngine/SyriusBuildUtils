@@ -15,6 +15,12 @@ else()
     message(STATUS "Building in Release Mode")
 endif()
 
+# Compiler specific flags
+if (MSVC)
+    # Flag for recursive macro expansion
+    add_compile_options(/Zc:preprocessor)
+endif ()
+
 # https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html
 # Sanitizers are only used for test executables
 # Sadly MinGW has no sanitizer flags
