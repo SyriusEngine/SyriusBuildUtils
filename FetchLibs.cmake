@@ -31,3 +31,7 @@ endfunction()
 function(fetch_fmt)
     fetch_lib(fmt https://github.com/fmtlib/fmt.git master)
 endfunction()
+
+function(fetch_spdlog)
+    fetch_lib(spdlog git@github.com:gabime/spdlog.git master)
+endfunction()

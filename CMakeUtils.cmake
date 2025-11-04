@@ -1,7 +1,7 @@
 include(FetchContent)
 
-include(${CMAKE_CURRENT_LIST_DIR}/CMakeCompilerFlags.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/CMakeFetchLibs.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/CompilerFlags.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/FetchLibs.cmake)
 
 set (CMAKE_CXX_STANDARD 17)
 

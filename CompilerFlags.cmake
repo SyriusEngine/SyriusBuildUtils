@@ -1,15 +1,29 @@
 # print C and C++ compiler
-message(STATUS "C Compiler: ${CMAKE_C_COMPILER_ID}")
-message(STATUS "C++ Compiler: ${CMAKE_CXX_COMPILER_ID}")
+include(PrettyColors.cmake)
 
-# Set C++ version to 20
-set(CMAKE_CXX_STANDARD 20)
+message(STATUS "${Yellow}C Compiler: ${CMAKE_C_COMPILER}${ColorReset}")
+message(STATUS "${Yellow}C++ Compiler: ${CMAKE_CXX_COMPILER}${ColorReset}")
+message(STATUS "${Yellow}Linker: ${CMAKE_LINKER}${ColorReset}")
+message(STATUS "${Yellow}CMake Generator: ${CMAKE_GENERATOR}${ColorReset}")
+
+# Set C++ version to 23
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-message(STATUS "C++ Version: ${CMAKE_CXX_STANDARD}")
+set(CMAKE_CXX_EXTENSIONS OFF)
+message(STATUS "${Yellow}C++ Version: ${CMAKE_CXX_STANDARD}${ColorReset}")
+
+# Configure ccache (if found)
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    message(STATUS "${Green}Found ccache: ${CCACHE_PROGRAM}${ColorReset}")
+    set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+else()
+    message(STATUS "ccache not found; not using a compiler launcher.")
+endif()
 
 # check build type
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    message(STATUS "Building in Debug Mode")
+    message(STATUS "${Green}Building in Debug Mode${ColorReset}")
     add_compile_definitions(SR_DEBUG)
 else()
     message(STATUS "Building in Release Mode")
